@@ -4,3 +4,75 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+
+:root.theme-light {
+  --font-family: 'PressStart2P-Regular', 'FRM325x8', sans-serif;
+  --font-family-variable: 'Inter-Variable', monospace;
+  --wdth-text: 400;
+  --wdth-title: 700;
+  --background-color: rgba(255, 255, 255, 1);
+  --color: rgba(0, 0, 0, 1);
+  --color-inversion: rgba(255, 255, 255, 1);
+  --color-contour:rgba(0, 0, 0, 1);
+  --color-sparks: rgba(255, 0, 0, 1);
+  --background-image: repeating-linear-gradient(to right, #d3d3d3, #d3d3d3 2px, transparent 2px 4px),
+    repeating-linear-gradient(#d3d3d3, #d3d3d3 2px, transparent 2px 4px),
+    linear-gradient(#e7e7e7 0.01%, #1a1a1a);
+  --accent-color: rgba(0, 0, 0, 1);
+  --text-shadow: rgba(255, 255, 255, 1);
+}
+
+:root.theme-dark {
+  --font-family: 'PressStart2P-Regular', 'FRM325x8', sans-serif;
+  --font-family-variable: 'Inter-Variable', monospace;
+  --wdth-text: 465;
+  --wdth-title: 785;
+  --background-color: rgba(0, 0, 0, 1);
+  --color: rgba(0, 204, 20, 1);
+  --color-inversion: rgba(0, 204, 20, 1);
+  --color-contour: rgba(0, 204, 20, 1);
+  --color-sparks: rgba(255, 0, 0, 1);
+  --background-image: repeating-linear-gradient(to right, #000, #000 2px, transparent 2px 4px),
+    repeating-linear-gradient(#000, #000 2px, transparent 2px 4px),
+    linear-gradient(#007f0c, #004306);
+  --accent-color: rgba(0, 204, 20, 1);
+  --text-shadow: rgba(0, 0, 0, 1);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --font-family: 'PressStart2P-Regular', 'FRM325x8', sans-serif;
+    --font-family-variable: 'Inter-Variable', monospace;
+    --wdth-text: 400;
+    --wdth-title: 700;
+    --background-color: rgba(255, 255, 255, 1);
+    --color: rgba(0, 0, 0, 1);
+    --color-inversion: rgba(255, 255, 255, 1);
+    --color-contour: rgba(0, 0, 0, 1);
+    --color-sparks: rgba(255, 0, 0, 1);
+    --background-image: repeating-linear-gradient(to right, #d3d3d3, #d3d3d3 2px, transparent 2px 4px),
+      repeating-linear-gradient(to bottom #d3d3d3, #d3d3d3 2px, transparent 2px 4px),
+      linear-gradient(#e7e7e7 0.01%, #1a1a1a);
+    --accent-color: rgba(0, 0, 0, 1);
+    --text-shadow: rgba(255, 255, 255, 1);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --font-family: 'PressStart2P-Regular', 'FRM325x8', sans-serif;
+    --font-family-variable: 'Inter-Variable', monospace;
+    --wdth-text: 465;
+    --wdth-title: 785;
+    --background-color: rgba(0, 0, 0, 1);
+    --color: rgba(0, 204, 20, 1);
+    --color-inversion: rgba(0, 204, 20, 1);
+    --color-contour: rgba(0, 204, 20, 1);
+    --color-sparks: rgba(255, 0, 0, 1);
+    --background-image: repeating-linear-gradient(to right, #000, #000 2px, transparent 2px 4px),
+    repeating-linear-gradient(#000, #000 2px, transparent 2px 4px),
+    linear-gradient(#007f0c, #004306);
+    --accent-color: rgba(0, 204, 20, 1);
+    --text-shadow: rgba(0, 0, 0, 1);
+  }
+}
