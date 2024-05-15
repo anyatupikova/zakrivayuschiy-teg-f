@@ -21,8 +21,8 @@
   max-block-size: 100vh;
   display: grid;
   justify-items: center;
-  font-family: var(--font-family-variable), monospace;
-  font-variation-settings: 'wght' 400, 'slnt' 0;
+  font-family: var(--font-family-variable), sans-serif;
+  font-variation-settings: 'wght' var(--wdth-text), 'slnt' 0;
   background-color: var(--background-color);
   color: var(--color);
   background-attachment: fixed;
@@ -70,6 +70,16 @@
   border: none;
   text-transform: uppercase;
   position: relative;
+  line-height: 1;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.theme-menu__button,
+.button,
+.card__icon-button {
+  cursor: pointer;
+  appearance: none;
 }
 
 .theme-menu__button:disabled::before {
@@ -87,9 +97,7 @@
 .theme-menu__button:focus,
 .theme-menu__button:disabled {
   outline: none;
-  transition: opacity 0.3s ease;
   opacity: 0.6;
-  cursor: pointer;
 }
 
 .theme-menu__button:disabled {
@@ -122,14 +130,15 @@
   gap: 52px;
 }
 
-.list-item-title {
+.card__title {
   font-size: 18px;
   font-variation-settings: 'wght' var(--wdth-title), 'slnt' 0;
   line-height: 1.21;
   padding: 3px 12px;
+  border-bottom: 2px solid var(--accent-color);
 }
 
-.main__image {
+.card__image {
   position: relative;
 }
 
@@ -139,8 +148,6 @@
   aspect-ratio: 1/1;
   object-fit: cover;
   object-position: center;
-  border-top: 2px solid var(--accent-color);
-  border-bottom: 2px solid var(--accent-color);
 }
 
 .grayscale {
@@ -175,7 +182,7 @@
   position: absolute;
   right: 25px;
   top: 25px;
-  font-family: var(--font-family), 'FRM325x8', sans-serif;
+  font-family: var(--font-family), 'Minecraft Rus NEW', fantasy;
   text-transform: uppercase;
   font-size: 14px;
   color: var(--accent-color);
@@ -188,10 +195,11 @@
     0 -1px var(--text-shadow);
 }
 
-.main__list-description {
+.card__description {
   display: grid;
   gap: 25px;
   padding: 25px;
+  border-top: 2px solid var(--accent-color);
 }
 
 .text {
@@ -203,7 +211,7 @@
   padding-top: 2px;
 }
 
-.main__list-button {
+.card_button {
   display: flex;
   justify-self: end;
   gap: 5.5px;
@@ -214,6 +222,7 @@
   border: 2px solid transparent;
   padding: 0;
   block-size: 38px;
+  transition: border 0.3s ease;
 }
 
 .card__icon-button:focus {
@@ -222,17 +231,16 @@
 
 .card__icon-button:focus-visible {
   border: 2px solid var(--accent-color);
-  transition: border 0.3s ease;
 }
 
 .button {
   border: 2px solid var(--accent-color);
-  font-family: var(--font-family), 'FRM325x8', sans-serif;
+  font-family: var(--font-family), 'Minecraft Rus NEW', fantasy;
   background-color: var(--background-color);
   font-size: 14px;
   overflow: hidden;
   position: relative;
-  cursor: pointer;
+  transition: box-shadow 0.3s ease;
 }
 
 .button:focus {
@@ -241,7 +249,6 @@
 
 .button:focus-visible {
   box-shadow: 2px 2px 0 var(--accent-color);
-  transition: box-shadow 0.3s ease;
 }
 
 .button::before {
@@ -266,11 +273,7 @@
   color: var(--color-inversion);
 }
 
-/*.button__text:hover {
-  transition: color 0.5s ease-in-out;
-}*/
-
-.card__like-button,
+.card__like-button::first-letter,
 .button__text:first-letter {
   text-transform: uppercase;
 }
@@ -291,7 +294,6 @@
   width: 39px;
   height: auto;
   fill: var(--accent-color);
-  cursor: pointer;
   transform-origin: center;
 }
 
@@ -302,12 +304,12 @@
 
 .core {
   fill: transparent;
-  transition: fill 0.3s 0.05s linear;
+  transition: fill 0.3s 0.03s linear;
 }
 
 .like-icon:hover .main-body {
   fill: var(--color-contour);
-  transition: fill 0.3s 0.03s linear;
+  transition: fill 0.3s 0.05s linear;
 }
 
 .like-icon:hover .core {
@@ -317,7 +319,7 @@
 
 .like-icon:active .main-body {
   fill: var(--color-sparks);
-  transition: fill 0.3s 0.03s linear;
+  transition: fill 0.3s 0.05s linear;
 }
 
 .like-icon:active .core {
@@ -325,9 +327,13 @@
   transition: fill 0.3s linear;
 }
 
+.like-icon .contour {
+  fill: var(--color-contour);
+  transition: fill 0.1s linear; 
+}
+
 .sparks {
   opacity: 0;
-  transition: opacity 0.1s linear;
 }
 
 .like-icon.is-liked .core {
@@ -337,7 +343,7 @@
 
 .like-icon.is-liked .main-body {
   fill: var(--color-sparks);
-  transition: fill 0.3s 0.03s linear;
+  transition: fill 0.3s 0.05s linear;
 }
 
 .like-icon.is-liked .contour {
@@ -359,7 +365,7 @@
 }
 
 .footer {
-  margin-top: 50px;
+  block-size: 208px;
 }
 
 .footer__button {
@@ -367,6 +373,7 @@
   gap: 8px;
   align-items: center;
   padding: 15px 21px 15px 19px;
+  margin-top: 50px;
 }
 
 .footer__svg {
@@ -382,7 +389,7 @@
   padding: 30px;
   border: 2px solid var(--accent-color);
   color: var(--color);
-  font-family: var(--font-family), 'FRM325x8', sans-serif;
+  font-family: var(--font-family), 'Minecraft Rus NEW', fantasy;
   background-color: var(--background-color);
   font-size: 14px;
   line-height: 1.5;
@@ -402,27 +409,22 @@
 
 .dialog .button {
   inline-size: 100%;
+  text-transform: uppercase;
 }
 
-.dialog__text {
+.dialog__description-text {
   max-inline-size: 234px;
 }
 
 .dialog::backdrop {
-  background-color: rgba(0, 0, 0, 1);
-  opacity: 0.75;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 @supports((text-stroke: 1px var(--text-shadow)) or (-webkit-text-stroke: 1px var(--text-shadow))) {
-  .label:after {
-    content: attr(data-text);
-    position: absolute;
-    right: 0;
-    top: 0;
+  .label {
     -webkit-text-stroke: 2px var(--text-shadow);
     text-stroke: 1px var(--text-shadow);
     text-shadow: none;
-    z-index: -1;
   }
 }
 
@@ -434,7 +436,6 @@
 
   .footer__button {
     display: grid;
-    gap: 8px;
     justify-items: center;
   }
 
@@ -449,7 +450,7 @@
   }
 
   .header {
-    padding: 130px 0 14px;
+    padding: 120px 0 25px;
   }
 
   .header__logo {
@@ -457,6 +458,10 @@
   }
 
   .footer {
+    block-size: 436px;
+  }
+
+  .footer__button {
     margin-top: 52px;
   }
 }
