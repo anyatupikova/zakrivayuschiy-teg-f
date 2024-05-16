@@ -37,7 +37,6 @@
   background-color: var(--background-color);
 }
 
-
 .header {
   margin: 100px 0;
   inline-size: clamp(375px, 49%, 700px);
@@ -366,6 +365,9 @@
 
 .footer {
   padding: 50px 0 103px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
 }
 
 .footer__button {
@@ -458,9 +460,5 @@
 
   .footer {
     padding: 52px 0 100px;
-  }
-
-  .footer__button {
-    margin-top: 52px;
   }
 }
